@@ -14,8 +14,24 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
+    - name: Output Run ID
+      run: echo ${{ github.run_id }}
+    - name: Output Run Number
+      run: echo ${{ github.run_number }}
+    - name: Output Run attempt
+      run: echo ${{ github.run_attempt }}
+    - name: print hostname
       run: hostname
+    - name: build docker image
+      run: docker build -t test:v1 .
+    - name: docker image tag
+      run: docker tag test:v1 dbista71/devops:latest
+    - name: docker login
+      run: docker login -u ${{vars.USERNAME}} -p ${{vars.PASS}}
+
+
+    - name: docker image tag
+      run: docker tag 
   deploy:
     runs-on: prod-server
     steps:
