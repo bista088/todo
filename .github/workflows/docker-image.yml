@@ -19,7 +19,7 @@ jobs:
   deploy:
     runs-on: prod-server
     steps:
-      -name: print hostname
-       run: hostname
-
+    - name: print hostname of the machine
+      run: hostname
+ 
  
