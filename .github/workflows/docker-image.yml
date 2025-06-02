@@ -27,8 +27,9 @@ jobs:
     - name: docker image tag
       run: docker tag test:v1 dbista71/devops:latest
     - name: docker login
-      run: docker login -u ${{vars.USERNAME}} -p ${{vars.PASS}}
-
+      run: docker login -u ${{vars.dbista71}} -p ${{vars.Dop@emrtds2025}}
+    - name: docker push
+      run: docker push dbista71/devops:latest
 
     - name: docker image tag
       run: docker tag 
